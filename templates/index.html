@@ -1,0 +1,166 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta content="Starlink Hosting" property="og:title" />
+    <meta content="website" property="og:type" />
+    <meta content="The only hosting site you will ever need!" property="og:description" />
+    <meta content="https://StarlinkHosting.starlinkboy.repl.co" property="og:url" />
+
+    <title>Starlink Hosting</title>
+
+   <style>
+  /* Color Scheme */
+  :root {
+    --primary-green: #4EE25F;
+    --light-green: #70CAAC;
+    --primary-pink: #FFFCFF;
+    --primary-purple: #8763E6;
+    --dark-black: #2D332C;
+  }
+
+  /* Typography */
+  body {
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+  /* Header */
+  header {
+    background-color: var(--primary-green);
+    color: var(--dark-black);
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+  }
+
+  footer {
+    background-color: var(--dark-black);
+    color: var(--primary-green);
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /* Form Box */
+  .form-box {
+    background-color: var(--primary-pink);
+    color: var(--primary-purple);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>Welcome to Starlink Hosting!</h1>
+    </header>
+<div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
+    <script>
+      window.onbeforeunload = function() {
+  document.getElementById("suc").innerHTML = "";
+  document.getElementById("error").innerHTML = "";
+};
+
+    </script>
+    <!-- Form Box -->
+    <div class="form-box">
+      <h3>The server is currently running. Enter the site you wish to monitor(Keep Online) below. Discord Bots, Apis, etc can be monitored.</h3><br><br><br>
+      <h2>Add Website</h2>
+      <form method="post">
+        <input type="text" name="website">
+        <input type="submit" value="Add">
+      </form>
+      {% if error %}
+        <p style="color: var(--green);" id ="error">{{ error }}</p>
+      {% endif %}
+      {% if suc %}
+        <p style="color: var(--green);" id = "suc">{{ suc }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Copyright &copy; 2023 Starlink Hosting</p>
+    </footer>
+  </body>
+</html>
